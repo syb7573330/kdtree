@@ -10,5 +10,5 @@ represent two 3D points.
 
 2). Currently, this program only supports 3D points. 
 
-3) To test this program, simply run
+3). To test this program, simply run
  * $ python kdtree.py -i /path/to/pointcloud/.txt/file
