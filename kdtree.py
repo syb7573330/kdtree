@@ -183,18 +183,12 @@ class KDTree(object):
     if curr_node.left is not None:
       # return a list of at most k nodes, arranged as the distances changing from smallest distance in best_left_sqr_dis
       best_left_children, best_left_sqr_dis = self.k_nearest_neighbors(query, curr_node.left, k, (level+1)%self.dim)
-      # print ('left children before')
-      # for node in best_left_children:
-      #   print node.get_position()
 
       # The current node should be inserted into the best nodes so far
       if len(best_left_children) < k or curr_best_sqr_dis[0] < best_left_sqr_dis[-1]:
         idx = bisect(best_left_sqr_dis, curr_best_sqr_dis[0])
         best_left_sqr_dis.insert(idx, curr_best_sqr_dis[0])
         best_left_children.insert(idx, curr_best_nodes[0])
-      # print ('left children after')
-      # for node in best_left_children:
-      #   print node.get_position()
 
       # take the first k (or less) elements
       curr_best_nodes = best_left_children[:k]
@@ -254,7 +248,7 @@ def main(pc_path):
     print node.get_position()
 
   print ('\n')
-  
+
   # Find the k nearest neighbors
   k = 3
   print ('The %d nearest neighbors for query point (8.0, 3.0, 1.0):' % k)
